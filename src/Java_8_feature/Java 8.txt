@@ -1,0 +1,87 @@
+1) concise and minimal code
+2) functional programing benefits in OOPS nature
+3) to enable parallel programing
+
+*Java 8 Features
+1. Lambda Expression
+2. Functional interface
+3. Method Reference
+4. Stream API
+5. Default and Static methods
+6. Comparator and Comparable
+7. foreach() method
+8. Optional Class
+9. Date and Time API
+10. StringJoiner class
+11. Nashorn
+12. Optional Class
+13. Date and Time API
+
+Steps to make any function to  lambda expression
+1)Remove modifiers
+2) Remove return type
+3) Remove method name
+4) Place arrow "()->"
+
+
+1. Lambda Expression
+A Lambda expression is a simple piece of code that takes in parameters and produces a result.
+It’s primarily used with functional interfaces
+Lambda expressions don’t have a method name, return type, or explicit parameter types.
+They’re typically defined inline when creating an instance of a functional interface
+Syntax:
+int sum1 = ( a, b) ->2. Functional interface (a+b);
+------------------------------------------------------------------------------------------------------------
+2. Functional interface
+A functional interface is characterized by having only one abstract method,
+though it can also include any number of default or static methods
+
+Functional interfaces are of 4 types, Predicate, Function, Consumer, and Supplier.
+
+Predicate:
+1. test(T t) abstract method
+2. isEqual(Object t)
+3. and (Predicate P)
+4. or(Predicate P)
+5. negate()
+
+Function:
+1. apply() abstract method
+
+Consumer:
+1. accept() abstract method
+2. andThen()
+
+Supplier:
+1. get() abstract method
+---------------------------------------------------------------------------------------------------------
+3. Method Reference:
+Method references in Java 8 provide a concise way to refer to methods or constructors of classes,
+especially when working with functional interfaces. Each time when you are using a lambda expression
+to just referring a method, you can replace your lambda expression with a method reference.
+
+There are basically 4 type of method references:
+
+1. Static Method :- ClassName::staticMethodName
+2. Reference to an instance method of a particular object :- object::methodName
+3. Reference to an instance method of a Class Type :- ClassName::methodName
+4. Reference to a constructor :- ClassName::new
+-----------------------------------------------------------------------------------------------------------------------
+5. Optional classes
+Java introduced the Optional class in java.util package to improve the management of null values.
+It is designed to encourage developers to handle null values more explicitly, reducing the chances
+of NullPointerExceptions.
+
+example:
+String name = null;
+Optional<String> nameOptional = Optional.ofNullable(name);
+if (nameOptional.isPresent()) {
+    // Value is present, you can access it using get()
+    String value = nameOptional.get();
+} else {
+    // Value is absent
+}
+
+-------------------------------------------------------------------------------------------------------------------
+🔹 Purpose of Default Methods
+To add new methods to interfaces without breaking existing implementations
