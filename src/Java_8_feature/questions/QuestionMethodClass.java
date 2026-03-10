@@ -230,4 +230,48 @@ public class QuestionMethodClass {
                 .findFirst();
         System.out.println(first);
     }
+
+    public static void question23() {
+        //Given a string find out duplicate character and its count .
+        String s = "java";
+        Set<String> set = new HashSet<>();
+        List<String> duplicateChar = Arrays.stream(s.split(""))
+                .filter(x -> !set.add(x))
+                .toList();
+        System.out.println("Duplicate Char: " + duplicateChar);
+    }
+
+    public static void question24() {
+        //find repeated word in the sentence
+        String s = "I am a java developer and I am proud of it";
+        Map<String, Long> count = Arrays.stream(s.split(" "))
+                .filter(x -> !x.equals(" "))
+                .collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));
+        List<String> repeatedWord = count.entrySet().stream()
+                .filter(x -> x.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .toList();
+        System.out.println(repeatedWord);
+    }
+
+    public static void question25() {
+        //print the last element of list;
+        List<String> stringList = new ArrayList<>(Arrays.asList("Java", "Developer", "Avinash", "Surwase"));
+        List<Integer> integerList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
+        Optional<String> findLastElement = stringList.stream().reduce((x, y) -> y);
+        Optional<Integer> reduce = integerList.stream().reduce((x, y) -> y);
+        System.out.println("Last Element Of String List: " + findLastElement);
+        System.out.println("Last Element of Integer List: " + reduce);
+    }
+
+    public static void question26(){
+        //swip string without using tem variable
+        String s1 = "Avinash";
+        String s2 = "Surwase";
+        s1 = s1 + s2;
+        s2 = s1.substring(0,s1.length() - s2.length());
+        s1 = s1.substring(s2.length());
+        System.out.println(s1);
+        System.out.println(s2);
+    }
 }
