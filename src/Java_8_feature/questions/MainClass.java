@@ -23,5 +23,9 @@ public class MainClass extends QuestionMethodClass{
         question20();
         question21();
         question22();
+        question23();
+        question24();
+        question25();
+        question26();
     }
 }
