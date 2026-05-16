@@ -3,6 +3,7 @@ package Java_8_feature.questions;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class QuestionMethodClass {
 
@@ -99,6 +100,38 @@ public class QuestionMethodClass {
                 .sorted()
                 .toArray();
         System.out.println(Arrays.toString(mergeArray));
+    }
+
+    public static void question9AnotherWay() {
+        int[] arr1 = {2, 4, 3, 1, 5};
+        int[] arr2 = {7, 8, 6, 9};
+        List<Integer> list1 = Stream.concat(Arrays.stream(arr1).boxed(),
+                        Arrays.stream(arr2).boxed())
+                .toList();
+        System.out.println(list1);
+    }
+
+    public static void interviewQuestion() {
+        int[] arr1 = {2, 4, 3, 1, 5, 7, 8, 9};
+        int[] arr2 = {7, 8, 6, 9, 2, 3, 4, 1};
+
+        Set<Integer> collect = Stream.concat(Arrays.stream(arr1).boxed(),
+                        Arrays.stream(arr2).boxed())
+                .collect(Collectors.toSet());
+        System.out.println(collect);
+    }
+
+    public static void sortMapByKeyAndValue(){
+        Map<Integer,String> map = new HashMap<>();
+        map.put(3,"cat");
+        map.put(1,"app");
+        map.put(2,"bat");
+
+        //sort by key
+        map.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+
+        //sort by value
+        map.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
 
     public static void question10() {
@@ -264,12 +297,12 @@ public class QuestionMethodClass {
         System.out.println("Last Element of Integer List: " + reduce);
     }
 
-    public static void question26(){
+    public static void question26() {
         //swip string without using tem variable
         String s1 = "Avinash";
         String s2 = "Surwase";
         s1 = s1 + s2;
-        s2 = s1.substring(0,s1.length() - s2.length());
+        s2 = s1.substring(0, s1.length() - s2.length());
         s1 = s1.substring(s2.length());
         System.out.println(s1);
         System.out.println(s2);
