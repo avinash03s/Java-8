@@ -27,5 +27,9 @@ public class MainClass extends QuestionMethodClass{
         question24();
         question25();
         question26();
+
+        interviewQuestion();
+        question9AnotherWay();
+        sortMapByKeyAndValue();
     }
 }
