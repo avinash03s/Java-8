@@ -10,8 +10,8 @@ public class FindThirdMax {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8));
         List<Integer> list1 = list.stream().sorted(Collections.reverseOrder())
-                .limit(3) /// process only first n element
-                .skip(2) /// skip first n element
+                .limit(2) /// process only first n element
+                .skip(1) /// skip first n element
                 .toList();
         System.out.println(list1);
     }

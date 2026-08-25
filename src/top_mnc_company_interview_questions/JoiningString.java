@@ -14,6 +14,7 @@ public class JoiningString {
         String combine = count.entrySet().stream().map(x -> x.getKey() + x.getValue())
                 .collect(Collectors.joining());
         System.out.println(combine);
+
     }
 }
 /* first calculate count then using this count join together using Collectors.joining() method with key - element

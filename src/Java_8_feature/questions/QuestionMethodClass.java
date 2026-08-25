@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-@MyAnnotation
+
 public class QuestionMethodClass {
 
     public static void question1() {
