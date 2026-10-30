@@ -2,6 +2,8 @@ package questionpractice;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class QuestionMethods {
 
@@ -32,7 +34,20 @@ public class QuestionMethods {
                 result[index++] = num;
             }
         }
+
         System.out.println(Arrays.toString(result));
+
+        System.out.println("......seconde way.....");
+        int[] array = Stream.concat(Arrays.stream(arr).filter(x -> x == 0).boxed()
+                , Arrays.stream(arr).filter(x -> x == 0).boxed()).mapToInt(Integer::intValue).toArray();
+        System.out.println(Arrays.toString(array));
+
+        System.out.println("--------another way without boxed and mapToInt method------------");
+        int[] array1 = IntStream.concat(Arrays.stream(arr).filter(x -> x != 0),
+                Arrays.stream(arr).filter(x -> x == 0)).toArray();
+        System.out.println(Arrays.toString(array1));
+
+
     }
 
     public static void q3(){
@@ -75,7 +90,7 @@ public class QuestionMethods {
                 .collect(Collectors.groupingBy(ch -> ch, LinkedHashMap::new, Collectors.counting()))
                 .entrySet().stream()
                 .filter(e -> e.getValue() == 1)
-                .map(Map.Entry::getKey)
+                .map(Map.Entry::getKey)///  using lambda x -> x.getKey()
                 .findFirst();
         System.out.println(first);
 
